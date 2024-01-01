@@ -1,0 +1,76 @@
+{
+  "name": "weather-notifier",
+  "version": "1.0.0",
+  "description": "A weather notifier app built with Electron",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder build --win --publish never",
+    "build:mac": "electron-builder build --mac --publish never",
+    "build:all": "electron-builder build --mac --win --publish never"
+  },
+  "author": {
+    "name": "Sathishkumar Krishnan",
+    "email": "satishkumar.pk@gmail.com"
+  },
+  "license": "MIT",
+  "build": {
+    "appId": "com.personal.weathernotifier",
+    "productName": "WeatherNotifier",
+    "copyright": "Copyright (c) 2023",
+    "mac": {
+      "icon": "icon.icns",
+      "target": [
+        "dmg",
+        "zip",
+        "dir"
+      ]
+    },
+    "win": {
+      "icon": "icon.ico",
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "portable",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "zip",
+          "arch": [
+            "x64"
+          ]
+        }
+      ]
+    },
+    "directories": {
+      "output": "build"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowElevation": false,
+      "allowToChangeInstallationDirectory": true,
+      "shortcutName": "WeatherApp",
+      "installerIcon": "icon.ico",
+      "perMachine": false,
+      "runAfterFinish": false
+    }
+  },
+  "dependencies": {
+    "adm-zip": "^0.5.10",
+    "node-notifier": "^10.0.1",
+    "request": "^2.88.2"
+  },
+  "devDependencies": {
+    "electron": "29.0.0-alpha.1",
+    "electron-builder": "^24.9.1",
+    "electron-packager": "^17.1.2",
+    "electron-reload": "^2.0.0-alpha.1"
+  }
+}
