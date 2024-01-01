@@ -4,7 +4,7 @@ const path = require('path');
 require('dotenv').config();
 
 // Define the external data source
-const dataUrl = "https://api.weatherapi.com/v1/current.json?key=process.env.WEATHER_KEY&q=Calgary";
+const dataUrl = "https://api.weatherapi.com/v1/current.json?key="+process.env.WEATHER_KEY+"&q=Calgary";
 
 // Function to fetch data from the external source
 const fetchData = () => {
