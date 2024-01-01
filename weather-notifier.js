@@ -1,21 +1,18 @@
 const notifier = require('node-notifier');
-const request = require('request');
+const axios = require('axios');
 const path = require('path');
+require('dotenv').config();
 
 // Define the external data source
-const dataUrl = "https://api.weatherapi.com/v1/current.json?key=75ac64ab24044e0597c170032232212&q=Calgary";
+const dataUrl = "https://api.weatherapi.com/v1/current.json?key=process.env.WEATHER_KEY&q=Calgary";
 
 // Function to fetch data from the external source
 const fetchData = () => {
-    return new Promise((resolve, reject) => {
-        request(dataUrl, (error, response, body) => {
-            if (error) {
-                reject(error);
-            } else {
-                resolve(JSON.parse(body));
-            }
+    return axios.get(dataUrl)
+        .then(response => response.data)
+        .catch(error => {
+            throw error;
         });
-    });
 };
 
 // Function to send a notification
