@@ -3,6 +3,8 @@ const axios = require('axios');
 const path = require('path');
 require('dotenv').config();
 
+const rabbitMQUrl = process.env.RABBITMQ_URL || 'amqp://localhost';
+
 // Define the external data source
 const dataUrl = "https://api.weatherapi.com/v1/current.json?key="+process.env.WEATHER_KEY+"&q=Calgary";
 
