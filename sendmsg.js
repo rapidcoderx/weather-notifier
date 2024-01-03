@@ -14,8 +14,12 @@ const rabbitMQOptions = {
     hostname: process.env.RABBITMQ_HOSTNAME,
     port: 5671, // Change this to the RabbitMQ TLS port
     username: process.env.RABBITMQ_USERNAME,
-    password: process.env.RABBITMQ_PASSWORD
+    password: process.env.RABBITMQ_PASSWORD,
+    locale: 'en_US',
+    frameMax: 0,
+    heartbeat: 0
 };
+
 const kafkaHost = process.env.KAFKA_HOST || 'localhost:9092';
 const username = process.env.KAFKA_USERNAME;
 const password = process.env.KAFKA_PASSWORD;

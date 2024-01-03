@@ -37,7 +37,7 @@ const setupRabbitMQ = async () => {
         const channel = await connection.createChannel();
         await channel.assertExchange(exchangeName, exchangeType, {durable: true});
         const { queue } = await channel.assertQueue(queueName, { exclusive: false });
-        channel.bindQueue(queue, exchangeName, topicName);
+        await channel.bindQueue(queue, exchangeName, topicName);
 
         return { channel, queue };
     } catch (error) {
